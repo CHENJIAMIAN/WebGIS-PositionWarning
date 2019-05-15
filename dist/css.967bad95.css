@@ -1,0 +1,40 @@
+html * {
+    font-size: 1em;
+    color: #000;
+    font-family: Arial;
+}
+
+
+
+/* ztree右键菜单的样式 */
+#directory-tree-menu {
+    position: absolute;
+    top: 0;
+    display: none;
+    margin: 0;
+    padding: 6px 0;
+    text-align: left;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
+    background-color: #EEE;
+    box-shadow: 0 0 10px #AAA;
+}
+
+#directory-tree-menu li {
+    padding: 2px 15px;
+    list-style: none outside none;
+    cursor: default;
+    color: #666;
+}
+
+#directory-tree-menu li:hover {
+    color: #EEE;
+    background-color: #666;
+}
+
+li#menu-item-delete,
+li#menu-item-rename {
+    margin-top: 1px;
+}
+
+/*# sourceMappingURL=/css.967bad95.css.map */

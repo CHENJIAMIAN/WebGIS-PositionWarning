@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人员位置安全预警系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="/app.c328ef1a.css"></head>
+
+<body class="skin-green-light">
+    <header class="main-header">
+        <div class="navbar-header logo">
+            <div class="logo-img"></div>
+            <a href="/index.html" style="color:white;    left: -1em;            position: relative;">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                安全预警系统
+            </a>
+
+            <ul id="directory-tree-menu">
+                <li id="menu-item-delete">删除</li>
+                <li id="menu-item-rename">重命名</li>
+            </ul>
+
+        </div>
+        <nav class="navbar navbar-static-top" style="    padding-bottom: 0;">
+            <!-- Sidebar toggle button -->
+            <a href="#" class="navbar-btn  sidebar-toggle" style="padding: 0;" data-toggle="push-menu" role="button">
+                <span class="sr-only" title="切换左侧导航">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <!--标签页-->
+            <ul class="nav  nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">地图</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user" role="tab" aria-controls="profile" aria-selected="false">用户</a>
+                </li>
+            </ul>
+            <!-- /.navbar-collapse -->
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <button id="unlogin" class="btn   btn-success " type="submit">退出登录</button>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- push-menu push-menu-light -->
+            <!-- 左侧导航列表  sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" style="display:flex">
+                <li class="active" id="layer" style="width: 50%;">
+                    <a href="">
+                        <i class="fa fa-dashboard"></i>
+                        <span>图层</span>
+                    </a>
+                </li>
+                <li id="people" style="width: 50%;">
+                    <a href="">
+                        <i class="fa fa-th"></i>
+                        <span>人员</span>
+                    </a>
+                </li>
+            </ul>
+            <!--图层树-->
+            <ul id="layerTree" class="ztree"></ul>
+            <!--人员树-->
+            <ul id="peopleTree" style="display:none;" class="ztree">我是人员树</ul>
+        </section>
+    </aside>
+
+
+
+    <div class="content-wrapper">
+        <div class="tab-content" id="myTabContent" style="    overflow: hidden;">
+            <div class="tab-pane show active" id="home">
+                <a id="beginShow" href="#" class="btn btn-success">开始演示</a>
+                <!--编辑安全区图层-->
+                <div class="dropdown" id="editSafearea">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        编辑安全区图层
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" id="StartEdit">选择或编辑</a>
+                        <a class="dropdown-item" href="#" id="addSafeArea">添加危险区</a>
+                        <a class="dropdown-item" href="#" id="cancelEdit">退出</a>
+                    </div>
+                </div>
+                <div id="mapCon">
+                    <!--地图操作-->
+                    <div id="mapOp">
+                        <div id="zoomOut" class="mapOp" style="background: url(/webmap.72afa7e8.png) -309px -32px; " title="放大">
+                        </div>
+                        <div id="zoomIn" class="mapOp" style="background: url(/webmap.72afa7e8.png) -361px -32px;" title="缩小">
+                        </div>
+                        <div id="pan" class="mapOp" style="background: url(/webmap.72afa7e8.png) -306px -129px;" title="移动">
+                        </div>
+                        <div id="clear" class="mapOp" style="background: url(/webmap.72afa7e8.png) 99px -76px;" title="清除">
+                        </div>
+                        <div id="fullExtent" class="mapOp" style="background: url(/webmap.72afa7e8.png) 151px -32px;" title="全图">
+                        </div>
+                        <div id="measureLine" class="mapOp" style="background: url(/webmap.72afa7e8.png) 1027px -83px;" title="量线"></div>
+                        <div id="measureArea" class="mapOp" style="    background: url(/webmap.72afa7e8.png) 203px -32px;" title="量面"></div>
+                    </div>
+                    <div class="foldmMapOp" id="closeMapOp" style=" background: url(/webmap.72afa7e8.png) 201px -77px #ffffff00;" title="折叠"></div>
+                    <div class="foldmMapOp" id="openMapOp" style="display: none; background: url(/webmap.72afa7e8.png) 148px -77px white;" title="展开">
+                    </div>
+                    <div id="mapMenu">
+                        <!--添加线图层-->
+                        <!--                                     <div class="btn-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    添加线图层 <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#" id='addLayer'>添加人员路径</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" id='undoAdded'>撤销</a>
+                                                    </li>                                          
+                                                  
+                                                    <li>
+                                                        <a href="#" id='cancelAdd'>退出</a>
+                                                    </li>
+                                                </ul>
+                                            </div> -->
+
+                    </div>
+                    <!--警示灯-->
+                    <div id="alertLightOn" style="display:none;" class="alertLightOn"></div>
+                    <div id="alertLightOff" class="alertLightOff"></div>
+                </div>
+            </div>
+            <div class="tab-pane" id="user">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>用户</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/app.c328ef1a.js"></script>
+
+</body></html>

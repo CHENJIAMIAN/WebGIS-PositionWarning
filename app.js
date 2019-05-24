@@ -12,7 +12,7 @@ import 'ol'
 import 'ol/ol.css';
 import "layerui"
 import "layerui/src/theme/default/layer.css"
-//<!---------------地图的东西-------------------------->
+
 import "./css/index.css"
 import "./js/index.js"
 
@@ -20,7 +20,7 @@ import "./css/map.css"
 import "./js/map"
 import "./js/geolocation"
 import "./js/measure"
-//<!--OpenLayer与zTree联动控制图层-->
+
 import "./js/layerTree"
 import "./js/peopleTree"
 

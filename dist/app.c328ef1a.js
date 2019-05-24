@@ -52509,8 +52509,7 @@ RBush.prototype.remove = function remove(value) {
 
 RBush.prototype.update = function update(extent, value) {
   var item = this.items_[(0, _util.getUid)(value)];
-  if (!item) return; // <== added line
-
+  if (item == undefined) return;
   var bbox = [item.minX, item.minY, item.maxX, item.maxY];
 
   if (!(0, _extent.equals)(bbox, extent)) {
@@ -82194,7 +82193,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"C:\\桌面\\new-project\\img\\webmap.png":[["webmap.72afa7e8.png","img/webmap.png"],"img/webmap.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/ol/geom.js":[function(require,module,exports) {
+},{"C:\\桌面\\WebGIS-PositionWarning\\img\\webmap.png":[["webmap.72afa7e8.png","img/webmap.png"],"img/webmap.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/ol/geom.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -111369,7 +111368,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"C:\\桌面\\new-project\\img\\webmap.png":[["webmap.72afa7e8.png","img/webmap.png"],"img/webmap.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/geolocation.js":[function(require,module,exports) {
+},{"C:\\桌面\\WebGIS-PositionWarning\\img\\webmap.png":[["webmap.72afa7e8.png","img/webmap.png"],"img/webmap.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/geolocation.js":[function(require,module,exports) {
 "use strict";
 
 var _Feature = _interopRequireDefault(require("ol/Feature.js"));
@@ -111871,8 +111870,7 @@ _map.default.addLayer(vector);
 
 _map.default.addLayer(vector2);
 
-_map.default.addLayer(vector3); //遍历显示手机端发送来的 所有人员
-
+_map.default.addLayer(vector3);
 
 var vectorPhonePeo = new _layer.Vector({
   title: '手机人员',
@@ -112270,7 +112268,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "20622" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10456" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

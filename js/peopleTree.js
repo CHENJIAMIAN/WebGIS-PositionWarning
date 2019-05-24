@@ -75,7 +75,7 @@ map.addLayer(vector);
 map.addLayer(vector2);
 map.addLayer(vector3);
 
-//遍历显示手机端发送来的 所有人员
+
 var vectorPhonePeo = new VectorLayer({
     title: '手机人员',
     treeNdoeId: 4,
@@ -265,7 +265,7 @@ function onCheck(e, treeId, treeNode) {
     if (treeNode.checked) {
         //选中
         if (treeNode.name == '人员组') {
-            for(var i=1; i<layersArray.length;i++){
+            for (var i = 1; i < layersArray.length; i++) {
                 layersArray[i].setVisible(true)
             }
         } else {
@@ -274,7 +274,7 @@ function onCheck(e, treeId, treeNode) {
         }
     } else {
         if (treeNode.name == '人员组') {
-            for(var i=1; i<layersArray.length;i++){
+            for (var i = 1; i < layersArray.length; i++) {
                 layersArray[i].setVisible(false)
             }
         } else {

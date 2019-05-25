@@ -20,7 +20,6 @@ import "./css/map.css"
 import "./js/map"
 import "./js/geolocation"
 import "./js/measure"
-
 import "./js/layerTree"
 import "./js/peopleTree"
 

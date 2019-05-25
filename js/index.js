@@ -1,6 +1,28 @@
 
 import { default as map } from './map';
 
+
+
+$("#layer").click(function () {
+    if ($(this).hasClass("active"))
+        return false;
+    $(this).toggleClass('active');
+    $("#people").toggleClass('active');
+    $("#peopleTree").toggle();
+    $("#layerTree").toggle();
+    return false;
+});
+
+$("#people").click(function () {
+    if ($(this).hasClass("active"))
+        return false;
+    $(this).toggleClass('active');
+    $("#layer").toggleClass('active');
+    $("#peopleTree").toggle();
+    $("#layerTree").toggle();
+    return false;
+});
+
 $(window).resize(function () {
     var isCollapse = $('body').hasClass('sidebar-collapse')//>767用它来判断
     var isOpen = $('body').hasClass('sidebar-open')//<767用它来 
@@ -19,7 +41,7 @@ $(window).resize(function () {
             })
         }
     }
-    else if($(window).width() < 767){
+    else if ($(window).width() < 767) {
         if (isOpen) {
             $('#mapCon').css({
                 "position": "absolute",

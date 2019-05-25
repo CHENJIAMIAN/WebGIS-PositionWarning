@@ -106,7 +106,7 @@ var selectInteraction = new Select({
     filter: function (feature, layer) {
         if (layer == null) return false;
         if (layer.get("title") == "手机人员") {
-            console.log(feature.getGeometryName())
+            // console.log(feature.getGeometryName())
         }
         return layer === safeArea;
     }

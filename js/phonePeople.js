@@ -1,7 +1,5 @@
-import { default as map, safeArea } from './map';
+import { default as map } from './map';
 import { styleBlue, styleRed, isInPoly, renderWarning } from './peopleDemo';
-import { showLayer } from './peopleTree'
-import { zTree } from './peopleTree';
 import { Group, Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 import { fromLonLat, transform, get as getProjection } from 'ol/proj.js';
 import Feature from 'ol/Feature';
@@ -9,8 +7,7 @@ import { Vector as VectorSource } from 'ol/source.js';
 import { Point } from 'ol/geom';
 import { booleanPointInPolygon, point, polygon } from '@turf/turf'
 import { default as basetree } from './basetree';
-import image_blue_man from '/img/blue_man.png'
-import image_red_man from '/img/red_man.png'
+import {showLayer} from './showlayer'
 
 
 //添加手机人员图层

@@ -1,8 +1,7 @@
 import { default as map } from './map';
-import { vectorPhonePeo } from './phonePeople';
 import { default as basetree } from './basetree';
 import { vector, vector2, vector3 } from './peopleDemo';
-
+import {showLayer} from './showlayer'
 
 window.map = map;
 //初始化人员树,绑定选中事件
@@ -119,34 +118,6 @@ function hideMenu() {
     $('#directory-tree-menu').hide();
     $(document).off('mousedown');
 }
-
-var openedLayerIndex = 0;
-export var showLayer = function () {
-    //弹窗报警,动态根据人名生成弹出内容
-    basetree.layerContent = '<ul class="list-group">'
-    basetree.peopleList.forEach(function (vector) {
-        var peopleName = vector.values_.title
-        var li = '<li class="list-group-item"  id="' + peopleName + '">' + peopleName + '</li>  '
-        basetree.layerContent += li;
-    })
-    basetree.layerContent += ' </ul >'
-    //弹窗报警
-    layer.close(openedLayerIndex)
-    openedLayerIndex = layer.open({
-        type: 1,
-        title: "预警窗口",
-        //不显示标题
-        skin: 'layui-layer-demo',
-        //样式类名
-        anim: 2,
-        closeBtn: 0,
-        shade: false,
-        //宽度\高度
-        area: ['200px', '350px'],
-        offset: ['300px', '10px'],
-        //宽高
-        content: basetree.layerContent
-    });
-};
+//显示预警窗口
 showLayer();
 

@@ -1,4 +1,3 @@
-
 import { default as map } from './map';
 
 
@@ -12,7 +11,6 @@ $("#layer").click(function () {
     $("#layerTree").toggle();
     return false;
 });
-
 $("#people").click(function () {
     if ($(this).hasClass("active"))
         return false;
@@ -22,7 +20,6 @@ $("#people").click(function () {
     $("#layerTree").toggle();
     return false;
 });
-
 $(window).resize(function () {
     var isCollapse = $('body').hasClass('sidebar-collapse')//>767用它来判断
     var isOpen = $('body').hasClass('sidebar-open')//<767用它来 
@@ -60,7 +57,6 @@ $(window).resize(function () {
 
     map.updateSize()
 });
-
 $(document).on('expanded.pushMenu', () => {
     if ($(window).width() >= 767) {
         $('#mapCon').css({
@@ -110,17 +106,12 @@ $("#openMapOp").click(function () {
     $("#openMapOp").hide();
     $("#closeMapOp").show();
 });
-//登录控制
-$(function () {
-    if (getCookie("username") == "") {
-        window.location.href = "login.html";
-    }
 
-    $("#unlogin").click(function () {
-        document.cookie = "username =;";
-        window.location.href = "login.html";
-    })
-});
+$("#unlogin").click(function () {
+    document.cookie = "username =;";
+    window.location.href = "login.html";
+})
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -131,34 +122,35 @@ function getCookie(cname) {
     }
     return "";
 }
-
-$(() => {
-    $.ajax({
-        type: "get",
-        url: 'https://api2.bmob.cn/1/classes/_User',
-        headers: {
-            "X-Bmob-Application-Id": "ae69ae4ad1b9328f1993c62a637454a7",
-            "X-Bmob-REST-API-Key": "05d377b293e63f9f9e22788154af1449"
-        },
-        dataType: "json",
-        complete: function (jqXHR, textStatus) {
-            var data = jqXHR.responseJSON.results;
-
-            if (jqXHR.status == 200) {
-                var str = '';
-                for (var i = 0; i < data.length; i++) {
-                    str += "<tr>";
-                    str += "<td>" + (i + 1) + "</td>";
-                    str += "<td>" + data[i].username + "</td>";
-                    str += "</tr>";
-
-                }
-                $("#user tbody").empty();
-                $("#user tbody").append(str);
-            } else {
-                console.log('获取用户表' + jqXHR.responseJSON);
-            }
-        }
-    });
+//登录控制
+if (getCookie("username") == "") {
+    window.location.href = "login.html";
 }
-);
+//获得用户列表
+$.ajax({
+    type: "get",
+    url: 'https://api2.bmob.cn/1/classes/_User',
+    headers: {
+        "X-Bmob-Application-Id": "ae69ae4ad1b9328f1993c62a637454a7",
+        "X-Bmob-REST-API-Key": "05d377b293e63f9f9e22788154af1449"
+    },
+    dataType: "json",
+    complete: function (jqXHR, textStatus) {
+        var data = jqXHR.responseJSON.results;
+
+        if (jqXHR.status == 200) {
+            var str = '';
+            for (var i = 0; i < data.length; i++) {
+                str += "<tr>";
+                str += "<td>" + (i + 1) + "</td>";
+                str += "<td>" + data[i].username + "</td>";
+                str += "</tr>";
+
+            }
+            $("#user tbody").empty();
+            $("#user tbody").append(str);
+        } else {
+            console.log('获取用户表' + jqXHR.responseJSON);
+        }
+    }
+});

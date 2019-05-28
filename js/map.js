@@ -19,6 +19,8 @@ import Feature from 'ol/Feature';
 import { FullScreen, OverviewMap } from 'ol/control.js';
 import { defaults as defaultControls, Control } from 'ol/control';
 import {queryWfs,modifyWfs,addWfs,deleteWfs} from "./WFS"
+import { default as FontSymbol } from 'ol-ext/style/FontSymbol'
+import { default as Shadow } from 'ol-ext/style/Shadow'
 
 //图层控制----------------------------------------------------------------------------------------------------
 parent.TiandituKey = "1868c5b20d2370d44dd9a2d00933ee60";
@@ -56,7 +58,7 @@ export var safeArea = new VectorLayer({
     source: new VectorSource({
         url: 'http://localhost:8080/geoserver/myWorkSpace/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=myWorkSpace%3AsafeArea_Origin&maxFeatures=50&outputFormat=application%2Fjson',
         format: new GeoJSON()
-    })
+    }),
 });
 export var Railway = new TileLayer({
     title: '铁路',
@@ -89,7 +91,7 @@ var map = new Map({
         zoom: 17
 
     }),
-    controls: defaultControls().extend([new OverviewMap(), new FullScreen()])
+    controls: defaultControls().extend([new OverviewMap({collapsed: false}), new FullScreen()])
 });
 var dragZoomOut = new DragZoom({
     condition: always,
@@ -274,4 +276,6 @@ $(function () {
         }
     });
 });
+
+
 export default map;

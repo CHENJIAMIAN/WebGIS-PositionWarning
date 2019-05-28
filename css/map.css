@@ -4,6 +4,10 @@
     left: 3em;
     z-index:1;
 }
+#mapCon > div.ol-viewport > div.ol-overlaycontainer-stopevent > div.ol-legend.ol-unselectable.ol-control
+{
+    margin-bottom: 200px
+}
 .alertLightOn {
     width: 78px;
     height: 78px;

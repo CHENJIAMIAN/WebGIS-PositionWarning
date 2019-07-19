@@ -19,6 +19,7 @@ import Feature from 'ol/Feature';
 import { FullScreen, OverviewMap } from 'ol/control.js';
 import { defaults as defaultControls, Control } from 'ol/control';
 import { queryWfs, modifyWfs, addWfs, deleteWfs } from "./WFS"
+
 import { default as FontSymbol } from 'ol-ext/style/FontSymbol'
 import { default as Shadow } from 'ol-ext/style/Shadow'
 
@@ -59,6 +60,7 @@ export var safeArea = new VectorLayer({
         url: 'http://47.106.64.137:8080/geoserver/myWorkSpace/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=myWorkSpace%3AsafeArea_Origin&maxFeatures=50&outputFormat=application%2Fjson',
         format: new GeoJSON(),
         crossOrigin: "Anonymous"
+
     }),
 });
 export var Railway = new TileLayer({

@@ -44,7 +44,11 @@ export function modifyWfs(features) {
     var featString = new XMLSerializer().serializeToString(featObject);
     var featString2 = featString.replace('geometry', 'the_geom');
     var request = new XMLHttpRequest();
+<<<<<<< HEAD
     request.open('POST', 'http://47.106.64.137:8080/geoserver/wfs?service=wfs');
+=======
+    request.open('POST', 'http://localhost:8080/geoserver/wfs?service=wfs');
+>>>>>>> b3f5f7c5505dbe53db453814a944a85feae171a6
     // 指定内容为xml类型
     request.setRequestHeader('Content-Type', 'text/xml');
     request.send(featString2);
@@ -60,7 +64,11 @@ export function addWfs(features) {
     var featString = serializer.serializeToString(featObject);
     var featString2 = featString.replace('geometry', 'the_geom').replace('geometry', 'the_geom');
     var request = new XMLHttpRequest();
+<<<<<<< HEAD
     request.open('POST', 'http://47.106.64.137:8080/geoserver/wfs?service=wfs');
+=======
+    request.open('POST', 'http://localhost:8080/geoserver/wfs?service=wfs');
+>>>>>>> b3f5f7c5505dbe53db453814a944a85feae171a6
     request.setRequestHeader('Content-Type', 'text/xml');
     request.send(featString2);
 }
@@ -74,7 +82,11 @@ export function deleteWfs(features) {
     var serializer = new XMLSerializer();
     var featString = serializer.serializeToString(featObject);
     var request = new XMLHttpRequest();
+<<<<<<< HEAD
     request.open('POST', 'http://47.106.64.137:8080/geoserver/wfs?service=wfs');
+=======
+    request.open('POST', 'http://localhost:8080/geoserver/wfs?service=wfs');
+>>>>>>> b3f5f7c5505dbe53db453814a944a85feae171a6
     request.setRequestHeader('Content-Type', 'text/xml');
     request.send(featString);
 }
